@@ -1,6 +1,6 @@
-import Dashboard from  './dashboard';
+import App from  './app';
 export default function Home() {
   return (
-<Dashboard/>
+<App/>
   );
 }

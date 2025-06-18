@@ -13,6 +13,35 @@ const DRAW_SPEED_MS = 2500;
 const PRIZE_POOL_PERCENTAGE = 0.7;
 const DAILY_REWARD_AMOUNT = 50;
 
+
+useEffect(() => {
+  if (typeof document !== 'undefined') {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes jump-in { 0% { transform: scale(0.5); opacity: 0; } 75% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
+      .animate-fade-in { animation: fade-in 0.5s ease-in-out; }
+      .animate-fade-in-up { animation: fade-in-up 0.5s ease-in-out; }
+      .animate-jump-in { animation: jump-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        animation: confetti-fall 5s ease-in-out infinite;
+      }
+      @keyframes confetti-fall {
+        0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}, []);
+
+
+
 const prizeTiers = {
     1: { name: "BINGO!", multiplier: 0.6 },
     2: { name: "Moldura", multiplier: 0.3 },
@@ -647,30 +676,3 @@ export default function App() {
 }
 
 // Keyframes
-useEffect(() => {
-  if (typeof document !== 'undefined') {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-      @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes jump-in { 0% { transform: scale(0.5); opacity: 0; } 75% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
-      .animate-fade-in { animation: fade-in 0.5s ease-in-out; }
-      .animate-fade-in-up { animation: fade-in-up 0.5s ease-in-out; }
-      .animate-jump-in { animation: jump-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .confetti {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        opacity: 0;
-        animation: confetti-fall 5s ease-in-out infinite;
-      }
-      @keyframes confetti-fall {
-        0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-}, []);
-
-document.head.appendChild(style);

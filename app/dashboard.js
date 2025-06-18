@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Power, Wallet, Ticket, ArrowLeft, Home, BookOpen, Trophy, ChevronLeft, ChevronRight, Volume2, VolumeX, User, Award, Star, Gem, Minus, Plus, Gift, Bell, Smartphone, Bike } from 'lucide-react';
 

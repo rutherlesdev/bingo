@@ -29,7 +29,11 @@ const generateBingoCard = () => {
 };
 
 // --- Componentes ---
-const AppContainer = ({ children }) => <div className="w-screen h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex flex-col">{children}</div>;
+
+
+
+const AppContainer = ({ children }) => <div className="min-w-full overflow-x-hidden h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex flex-col">
+    {children}</div>;
 const PageContent = ({ children }) => <div className="p-4 flex-grow flex flex-col">{children}</div>;
 const Header = ({ title, onBack, rightContent }) => (
     <header className="flex-shrink-0 bg-white shadow-lg z-10 rounded-b-2xl">
@@ -340,7 +344,7 @@ const ProfileScreen = ({ onNavigate, playerState, setPlayerState }) => {
         <AppContainer>
             <Header title="Meu Perfil" onBack={() => onNavigate('lobby')} />
             <PageContent>
-                <div className="flex flex-col items-center mb-6"> 
+                <div className="flex flex-col items-center mb-6 overflow-x-hidden"> 
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-lime-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg"> 
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

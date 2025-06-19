@@ -32,7 +32,7 @@ const generateBingoCard = () => {
 
 
 
-const AppContainer = ({ children }) => <div className="min-w-full overflow-x-hidden h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex flex-col">
+const AppContainer = ({ children }) => <div className=" initial-scale=1, maximum-scale=1, user-scalable=no w-full overflow-x-hidden h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex flex-col">
     {children}</div>;
 const PageContent = ({ children }) => <div className="p-4 flex-grow flex flex-col">{children}</div>;
 const Header = ({ title, onBack, rightContent }) => (

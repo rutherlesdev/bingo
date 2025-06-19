@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 // --- Ícones ---
-const CardIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18M4 6h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" /></svg>;
-const CartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>;
-const UserAvatarIcon = ({ onClick }) => <button aria-label="Ver Perfil" onClick={onClick} className="p-2 rounded-full bg-blue-600 hover:bg-blue-700 transition"><svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></button>;
+const CardIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18M4 6h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" /></svg>;
+const CartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>;
+const UserAvatarIcon = ({ onClick }) => <button aria-label="Ver Perfil" onClick={onClick} className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></button>;
 const Spinner = () => <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>;
 const PowerIcon = () => <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
 const StarIcon = () => <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>;
@@ -18,13 +18,13 @@ const generateBingoCard = () => {
 };
 
 // --- Componentes ---
-const AppContainer = ({ children }) => <div className="w-screen h-screen bg-gray-50 flex flex-col">{children}</div>;
+const AppContainer = ({ children }) => <div className="w-screen h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex flex-col">{children}</div>;
 const PageContent = ({ children }) => <div className="p-4 flex-grow flex flex-col">{children}</div>;
 const Header = ({ title, onBack, rightContent }) => (
-    <header className="flex-shrink-0 bg-white shadow-md z-10">
+    <header className="flex-shrink-0 bg-white shadow-lg z-10 rounded-b-2xl">
         <div className="max-w-md mx-auto flex items-center justify-between p-4 h-16">
             <div className="w-1/4">
-                {onBack && <button onClick={onBack} aria-label="Voltar" className="p-2 -ml-2"><BackIcon /></button>}
+                {onBack && <button onClick={onBack} aria-label="Voltar" className="p-2 -ml-2 text-gray-600 hover:text-gray-800 transition"><BackIcon /></button>}
             </div>
             <div className="w-1/2 text-center">
                 <h1 className="text-xl font-bold text-gray-800 truncate">{title}</h1>
@@ -36,7 +36,7 @@ const Header = ({ title, onBack, rightContent }) => (
     </header>
 );
 
-const Modal = ({ title, children, onClose }) => ( <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title"> <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 relative text-center"> <h2 id="modal-title" className="text-2xl font-bold text-gray-800 mb-4">{title}</h2> {children} <button onClick={onClose} className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg">Fechar</button> </div> </div> );
+const Modal = ({ title, children, onClose }) => ( <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title"> <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 relative text-center"> <h2 id="modal-title" className="text-2xl font-bold text-gray-800 mb-4">{title}</h2> {children} <button onClick={onClose} className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition-colors">Fechar</button> </div> </div> );
 
 const LobbyScreen = ({ onNavigate, setPlayerState }) => {
     const [showDailyReward, setShowDailyReward] = useState(false);
@@ -45,17 +45,17 @@ const LobbyScreen = ({ onNavigate, setPlayerState }) => {
     const games = [ { id: 1, prize: 'Prémio de R$ 300,00', price: 2.00 }, { id: 2, prize: 'Prémio: iPhone 16 Pro', price: 5.00 }, { id: 3, prize: 'Prémio: Moto 0KM', price: 10.00 }, ];
     return (
         <AppContainer>
-            {showDailyReward && ( <Modal title="🎁 Recompensa Diária! 🎁" onClose={claimReward}> <p className="text-gray-600 mb-4">Bem-vindo de volta! Aqui está o seu bónus por jogar hoje.</p> <p className="text-3xl font-bold text-yellow-500">100 Moedas</p> </Modal> )}
-            <Header title="Bingool" rightContent={<UserAvatarIcon onClick={() => onNavigate('profile')} />} />
+            {showDailyReward && ( <Modal title="🎁 Recompensa Diária! 🎁" onClose={claimReward}> <p className="text-gray-600 mb-4">Bem-vindo de volta! Aqui está o seu bónus por jogar hoje.</p> <p className="text-3xl font-bold text-lime-500">100 Moedas</p> </Modal> )}
+            <Header title="BINGO" rightContent={<UserAvatarIcon onClick={() => onNavigate('profile')} />} />
             <PageContent>
-                <div className="bg-blue-100 p-4 rounded-lg mb-6">
-                    <h3 className="font-bold text-gray-700 text-xl mb-3">Jogos Disponíveis</h3>
-                    <div className="space-y-3"> {games.map(game => ( <button key={game.id} onClick={() => onNavigate('purchase', { game })} className="w-full flex items-center bg-white p-3 rounded-lg shadow hover:bg-gray-50 transition"> <span className="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">{game.id}</span> <span className="font-semibold text-gray-800">Bingo - {game.prize}</span> </button> ))} </div>
+                <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl mb-6 shadow-lg">
+                    <h3 className="font-bold text-gray-700 text-xl mb-4 text-center">Jogos Disponíveis</h3>
+                    <div className="space-y-3"> {games.map(game => ( <button key={game.id} onClick={() => onNavigate('purchase', { game })} className="w-full flex items-center bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-105"> <span className="bg-lime-400 text-blue-800 rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">{game.id}</span> <span className="font-semibold">Bingo - {game.prize}</span> </button> ))} </div>
                 </div>
                 <div className="flex-grow flex flex-col">
-                    <h3 className="font-bold text-gray-700 text-xl mb-3 text-center">Minhas Cartelas</h3>
-                    <div className="flex justify-around items-center mb-6"> <button onClick={() => onNavigate('purchase', { game: games[0] })} className="flex flex-col items-center p-4 rounded-lg hover:bg-blue-100 transition"><CardIcon /><span className="mt-2 font-semibold text-gray-700">Jogar Agora</span></button> <button onClick={() => onNavigate('purchase', { game: games[0] })} className="flex flex-col items-center p-4 rounded-lg hover:bg-blue-100 transition"><CartIcon /><span className="mt-2 font-semibold text-gray-700">Comprar Cartelas</span></button> </div>
-                    <button onClick={() => onNavigate('history')} className="w-full mt-auto bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg text-lg transition-colors">Histórico</button>
+                    <h3 className="font-bold text-white text-xl mb-4 text-center drop-shadow-lg">Minhas Cartelas</h3>
+                    <div className="flex justify-around items-center mb-6"> <button onClick={() => onNavigate('purchase', { game: games[0] })} className="flex flex-col items-center p-6 bg-white/90 backdrop-blur-sm rounded-2xl hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105"><CardIcon /><span className="mt-2 font-semibold text-gray-700">Marcar Cartela</span></button> <button onClick={() => onNavigate('purchase', { game: games[0] })} className="flex flex-col items-center p-6 bg-white/90 backdrop-blur-sm rounded-2xl hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105"><CartIcon /><span className="mt-2 font-semibold text-gray-700">Comprar Cartelas</span></button> </div>
+                    <button onClick={() => onNavigate('history')} className="w-full mt-auto bg-white/90 backdrop-blur-sm hover:bg-white text-gray-700 font-bold py-4 rounded-2xl text-lg transition-all shadow-lg hover:shadow-xl">Histórico</button>
                 </div>
             </PageContent>
         </AppContainer>
@@ -70,9 +70,9 @@ const ProfileScreen = ({ onNavigate, playerState, setPlayerState }) => {
         <AppContainer>
             <Header title="Meu Perfil" onBack={() => onNavigate('lobby')} />
             <PageContent>
-                <div className="flex flex-col items-center mb-6"> <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center mb-2"> <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> </div> <h2 className="text-2xl font-bold text-gray-700">Utilizador Exemplo</h2> <div className="mt-2 text-lg font-semibold text-yellow-500 flex items-center"> <StarIcon /> Nível {playerState.level} </div> </div>
-                <div className="mb-6"> <h3 className="font-bold text-gray-700 text-lg mb-2">Tema da Cartela</h3> <div className="flex justify-around bg-gray-100 p-2 rounded-lg"> {themes.map(theme => <button key={theme.id} onClick={() => setPlayerState(p => ({ ...p, theme: theme.id }))} className={`px-4 py-2 rounded-lg font-semibold transition-all ${playerState.theme === theme.id ? `${theme.bg} ${theme.text} ring-2 ring-blue-500` : 'bg-white'}`}>{theme.name}</button>)} </div> </div>
-                <div className="mb-6"> <h3 className="font-bold text-gray-700 text-lg mb-2">Conquistas</h3> <div className="space-y-2"> {achievements.map(ach => ( <div key={ach.id} className={`flex items-center p-3 rounded-lg ${ach.unlocked ? 'bg-lime-100 text-lime-800' : 'bg-gray-100 text-gray-500'}`}> <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 ${ach.unlocked ? 'bg-lime-500' : 'bg-gray-300'}`}>{ach.unlocked && '✔'}</div> {ach.text} </div> ))} </div> </div>
+                <div className="flex flex-col items-center mb-6"> <div className="w-24 h-24 rounded-full bg-gradient-to-br from-lime-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg"> <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> </div> <h2 className="text-2xl font-bold text-white drop-shadow-lg">Utilizador Exemplo</h2> <div className="mt-2 text-lg font-semibold text-lime-300 flex items-center drop-shadow-lg"> <StarIcon /> Nível {playerState.level} </div> </div>
+                <div className="mb-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg"> <h3 className="font-bold text-gray-700 text-lg mb-4">Tema da Cartela</h3> <div className="flex justify-around bg-gray-100 p-2 rounded-xl"> {themes.map(theme => <button key={theme.id} onClick={() => setPlayerState(p => ({ ...p, theme: theme.id }))} className={`px-4 py-2 rounded-lg font-semibold transition-all ${playerState.theme === theme.id ? `${theme.bg} ${theme.text} ring-2 ring-blue-500` : 'bg-white hover:bg-gray-50'}`}>{theme.name}</button>)} </div> </div>
+                <div className="mb-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg"> <h3 className="font-bold text-gray-700 text-lg mb-4">Conquistas</h3> <div className="space-y-3"> {achievements.map(ach => ( <div key={ach.id} className={`flex items-center p-4 rounded-xl transition-all ${ach.unlocked ? 'bg-lime-100 text-lime-800 shadow-md' : 'bg-gray-100 text-gray-500'}`}> <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-4 ${ach.unlocked ? 'bg-lime-500 text-white' : 'bg-gray-300'}`}>{ach.unlocked && '✔'}</div> {ach.text} </div> ))} </div> </div>
             </PageContent>
         </AppContainer>
     );
@@ -82,9 +82,9 @@ const BingoCard = ({ cardData, theme, calledNumbers, onMarkNumber, daub, isPower
     if (!cardData) return <div className="p-2 rounded-lg shadow-md bg-gray-200 animate-pulse"></div>;
     const themes = { default: 'bg-white', carnaval: 'bg-yellow-200', espaco: 'bg-gray-800' };
     const textColors = { default: 'text-blue-600', carnaval: 'text-purple-700', espaco: 'text-cyan-300' };
-    const markedBg = { default: 'bg-yellow-400', carnaval: 'bg-pink-500', espaco: 'bg-indigo-500' };
+    const markedBg = { default: 'bg-lime-400', carnaval: 'bg-pink-500', espaco: 'bg-indigo-500' };
     return (
-        <div className={`relative grid grid-cols-5 gap-2 p-3 rounded-lg shadow-lg ${themes[theme]} ${isAlmost ? 'animate-pulse-bright ring-4 ring-yellow-400' : ''}`}>
+        <div className={`relative grid grid-cols-5 gap-2 p-4 rounded-2xl shadow-lg ${themes[theme]} ${isAlmost ? 'animate-pulse-bright ring-4 ring-lime-400' : ''}`}>
             {['B', 'I', 'N', 'G', 'O'].map(letter => <div key={letter} className={`text-center font-bold text-2xl ${textColors[theme]}`}>{letter}</div>)}
             {Object.values(cardData.data).flat().map((number, index) => {
                 const isCenter = number === 'FREE';
@@ -95,7 +95,7 @@ const BingoCard = ({ cardData, theme, calledNumbers, onMarkNumber, daub, isPower
                         key={index}
                         onClick={() => !isCenter && onMarkNumber(number)}
                         disabled={isCenter || (!isPowerMode && !isCalled)}
-                        className={`relative aspect-square w-full flex items-center justify-center rounded-full text-lg font-bold transition-all duration-300 active:transform active:scale-90 
+                        className={`relative aspect-square w-full flex items-center justify-center rounded-full text-lg font-bold transition-all duration-300 active:transform active:scale-90 shadow-md hover:shadow-lg
                             ${isMarked ? `text-white ${markedBg[theme]}` : isCalled ? 'bg-lime-300' : themes[theme] === 'bg-white' ? 'bg-gray-200' : 'bg-white/20' } 
                             ${isCenter ? 'bg-blue-500 text-white text-sm' : ''} 
                             ${isPowerMode && !isMarked ? 'cursor-pointer hover:bg-purple-300' : ''}`}
@@ -139,114 +139,90 @@ const GameScreen = ({ onNavigate, playerState, setPlayerState, params }) => {
     }, [isPowerMode, playerState.cards, soundFX, setPlayerState, calculateNumbersToWin]);
     
     const handleBingoClick = () => {
-        const cardData = cards[0].data; const marked = cards[0].marked; const checkLine = (line) => line.every(num => num === 'FREE' || marked.includes(num)); let isBingo = false; const columns = Object.values(cardData); for (let col of columns) if(checkLine(col)) isBingo = true; for (let i = 0; i < 5; i++) { const row = [cardData.B[i], cardData.I[i], cardData.N[i], cardData.G[i], cardData.O[i]]; if(checkLine(row)) isBingo = true; } const diag1 = [cardData.B[0], cardData.I[1], cardData.N[2], cardData.G[3], cardData.O[4]]; const diag2 = [cardData.B[4], cardData.I[3], cardData.N[2], cardData.G[1], cardData.O[0]]; if(checkLine(diag1) || checkLine(diag2)) isBingo = true;
-        if (isBingo) { if(soundFX.win) soundFX.win.triggerAttackRelease(["C4", "E4", "G4"], "4n"); if (window.confetti) window.confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 } }); setShowBingo(true); setIsGameRunning(false); setPlayerState(p => ({...p, wins: p.wins + 1, level: Math.floor((p.wins + 1) / 5) + 1 })); } 
-        else { alert('Ainda não é bingo!'); }
+        const cardData = cards[0].data; const marked = cards[0].marked;
+        const lines = []; const columns = Object.values(cardData);
+        for(let i = 0; i < 5; i++) lines.push(columns.map(col => col[i]));
+        for(let col of columns) lines.push(col);
+        lines.push([cardData.B[0], cardData.I[1], cardData.N[2], cardData.G[3], cardData.O[4]]);
+        lines.push([cardData.B[4], cardData.I[3], cardData.N[2], cardData.G[1], cardData.O[0]]);
+        const hasBingo = lines.some(line => line.every(num => num === 'FREE' || marked.includes(num)));
+        if (hasBingo) { setShowBingo(true); setIsGameRunning(false); if (soundFX.win) soundFX.win.triggerAttackRelease(["C4", "E4", "G4"], "2n"); setPlayerState(p => ({ ...p, wins: p.wins + 1, coins: p.coins + game.prize })); }
     };
-    
-    const activatePower = () => { if(playerState.coins >= 50) { setIsPowerMode(true); alert('Carimbo Grátis Ativado! Clique em qualquer número por marcar na sua cartela.'); } else { alert('Moedas insuficientes! (Custo: 50 moedas)'); } };
-    const getBingoLetter = (number) => { if (number <= 15) return 'B'; if (number <= 30) return 'I'; if (number <= 45) return 'N'; if (number <= 60) return 'G'; if (number <= 75) return 'O'; return ''; };
 
-    return (
-        <AppContainer bgClass="bg-gray-100">
-            {showBingo && <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center z-20"> <h1 className="text-7xl font-bold text-yellow-400 animate-bounce">BINGOOL!</h1> <p className="text-white text-2xl mt-4">Você venceu!</p> <button onClick={() => onNavigate('lobby')} className="mt-8 bg-lime-500 text-white font-bold py-3 px-8 rounded-lg text-xl">Voltar ao Lobby</button> </div>}
-            <Header title={game.prize} onBack={() => onNavigate('lobby')} />
-            <PageContent>
-                <div className="w-full bg-white rounded-xl shadow-lg p-4 mb-4 text-center animate-tada"> <p className="text-6xl font-bold text-red-500" style={{fontFamily: "'Arial Black', Gadget, sans-serif"}}>{getBingoLetter(lastCalled)}{lastCalled || '--'}</p> </div>
-                <div className="mb-4"> <BingoCard cardData={cards[0]} theme={playerState.theme} calledNumbers={calledNumbers} onMarkNumber={(num) => handleMarkNumber(num, 0)} daub={daub} isAlmost={calculateNumbersToWin(cards[0].data, cards[0].marked) === 1} isPowerMode={isPowerMode} /> </div>
-                <div className="mt-auto space-y-3">
-                    <div>
-                         <h3 className="text-center text-sm font-bold text-gray-500 mb-1">Números Chamados</h3>
-                         <div className="flex items-center gap-2 bg-white p-2 rounded-lg shadow-inner h-16 overflow-x-auto">
-                            {calledNumbers.length === 0 && <p className="text-gray-400 text-sm w-full text-center">Aguardando o sorteio...</p>}
-                            {calledNumbers.slice().reverse().map(num => (
-                                <span key={num} className="bg-blue-500 rounded-full h-10 w-10 flex items-center justify-center font-bold text-white text-md shadow-sm flex-shrink-0">{num}</span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm p-2 rounded-xl space-y-3">
-                        <div className="grid grid-cols-3 gap-2">
-                            <button onClick={() => setIsAutoMark(!isAutoMark)} className={`py-3 rounded-lg font-semibold text-white transition-colors flex items-center justify-center text-sm ${isAutoMark ? 'bg-green-500' : 'bg-gray-400'}`}>Auto</button>
-                            <button onClick={activatePower} aria-label="Usar Carimbo Grátis" className="py-3 rounded-lg font-semibold text-white bg-purple-500 flex items-center justify-center"><PowerIcon />Poder</button>
-                            <button onClick={handleBingoClick} className="col-span-1 bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-lg text-2xl shadow-lg active:transform active:scale-95">BINGO!</button>
-                        </div>
-                    </div>
-                </div>
-            </PageContent>
-        </AppContainer>
-    );
-};
-
-const PurchaseScreen = ({ onNavigate, setPlayerState, params }) => {
-    const { game } = params; const [quantity, setQuantity] = useState(1); const [isLoading, setIsLoading] = useState(false);
-    const handlePayment = () => { setIsLoading(true); setTimeout(() => { const newCards = Array.from({ length: quantity }, () => ({ id: Math.random(), data: generateBingoCard(), marked: [] })); setPlayerState(p => ({ ...p, cards: newCards, cardsBought: p.cardsBought + quantity })); setIsLoading(false); onNavigate('game', { cards: newCards, game }); }, 2000); };
-    return (
-      <AppContainer>
-          <Header title="Comprar Cartelas" onBack={() => onNavigate('lobby')} />
-          <PageContent>
-            <div className="bg-blue-500 text-white p-4 rounded-lg text-center shadow-lg"><h2 className="text-xl font-bold">{game.prize}</h2></div>
-            <div className="my-8"> <label className="font-bold text-gray-700 text-lg">Quantidade (Máx. 4)</label> <div className="flex items-center justify-center mt-2"> <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="bg-gray-200 h-12 w-12 text-2xl font-bold rounded-lg">-</button> <span className="mx-6 text-3xl font-bold">{quantity}</span> <button onClick={() => setQuantity(q => Math.min(4, q + 1))} className="bg-gray-200 h-12 w-12 text-2xl font-bold rounded-lg">+</button> </div> </div>
-            <div className="text-center bg-gray-200 p-4 rounded-lg mt-auto"> <p className="text-sm text-gray-600">R$ {game.price.toFixed(2)} POR CARTELA</p> <p className="text-2xl font-bold text-gray-800">TOTAL: R$ {(game.price * quantity).toFixed(2)}</p> </div>
-            <div className="mt-4 space-y-2"> <button onClick={handlePayment} disabled={isLoading} className="w-full bg-lime-500 hover:bg-lime-600 text-white font-bold py-4 rounded-lg text-2xl shadow-lg flex items-center justify-center disabled:bg-lime-300">{isLoading ? <Spinner /> : 'PAGAR'}</button></div>
-          </PageContent>
-      </AppContainer>
-    );
-};
-
-const HistoryScreen = ({ onNavigate, playerState }) => {
     return (
         <AppContainer>
-            <Header title="Histórico e Estatísticas" onBack={() => onNavigate('lobby')} />
+            {showBingo && ( <Modal title="🎉 BINGO! 🎉" onClose={() => onNavigate('lobby')}> <p className="text-gray-600 mb-4">Parabéns! Você ganhou!</p> <p className="text-2xl font-bold text-lime-500">Prémio: R$ {game.prize}</p> </Modal> )}
+            <Header title="Jogo de Bingo" onBack={() => onNavigate('lobby')} />
             <PageContent>
-                <div className="grid grid-cols-2 gap-4 mb-8 text-center"> <div className="bg-blue-100 p-4 rounded-lg"><p className="text-2xl font-bold text-blue-700">{playerState.wins}</p><p className="text-sm text-gray-600">Vitórias</p></div> <div className="bg-yellow-100 p-4 rounded-lg"><p className="text-2xl font-bold text-yellow-700">{playerState.cardsBought}</p><p className="text-sm text-gray-600">Cartelas Compradas</p></div> </div>
-                <h3 className="text-lg font-bold text-gray-700 mb-2">Histórico de Jogos (Exemplo)</h3>
-                <div className="space-y-3 flex-grow"> {[{ id: '#123456', date: '22 de abr', result: 'VITÓRIA' }, { id: '#123455', date: '21 de abr', result: 'DERROTA' }].map(item => ( <div key={item.id} className="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm"><div className="text-left"><p className="font-bold text-gray-500 text-sm">{item.date}</p><p className="font-semibold text-gray-700">{item.id}</p></div><span className={`px-4 py-1 rounded-full font-bold text-sm text-white ${item.result === 'VITÓRIA' ? 'bg-green-500' : 'bg-red-500'}`}>{item.result}</span></div>))} </div>
+                <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl mb-4 shadow-lg">
+                    <div className="flex justify-between items-center mb-4">
+                        <div className="text-center">
+                            <p className="text-sm text-gray-600">Última Bola</p>
+                            <p className="text-3xl font-bold text-blue-600">{lastCalled || '--'}</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-sm text-gray-600">Bolas Chamadas</p>
+                            <p className="text-2xl font-bold text-gray-800">{calledNumbers.length}/75</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-2 mb-4">
+                        <button onClick={() => setIsAutoMark(!isAutoMark)} className={`flex-1 py-2 px-4 rounded-xl font-semibold transition-all ${isAutoMark ? 'bg-lime-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>Auto-Marcar</button>
+                        <button onClick={() => setIsPowerMode(true)} disabled={playerState.coins < 50} className="flex-1 py-2 px-4 rounded-xl font-semibold bg-purple-500 text-white hover:bg-purple-600 disabled:bg-gray-300 disabled:text-gray-500 transition-all flex items-center justify-center"><PowerIcon />Power (50 moedas)</button>
+                    </div>
+                </div>
+                <div className="space-y-4 mb-4">
+                    {cards.map((card, index) => (
+                        <BingoCard
+                            key={index}
+                            cardData={card}
+                            theme={playerState.theme}
+                            calledNumbers={calledNumbers}
+                            onMarkNumber={(number) => handleMarkNumber(number, index)}
+                            daub={daub}
+                            isPowerMode={isPowerMode}
+                            isAlmost={calculateNumbersToWin(card.data, card.marked) === 1}
+                        />
+                    ))}
+                </div>
+                <button onClick={handleBingoClick} className="w-full bg-lime-500 hover:bg-lime-600 text-white font-bold py-4 rounded-2xl text-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-105">BINGO!</button>
             </PageContent>
         </AppContainer>
     );
 };
 
-const LoginScreen = ({ onNavigate }) => (
-    <AppContainer>
-      <PageContent>
-        <div className="flex flex-col justify-center flex-grow">
-            <div className="text-center mb-8"> <h1 className="text-5xl font-bold text-white bg-blue-500 py-2 px-4 rounded-lg shadow-lg" style={{ fontFamily: "'Arial Black', Gadget, sans-serif" }}>Bingool</h1> <h2 className="text-3xl font-semibold text-gray-700 mt-2">Aceda à sua Conta</h2> </div> <div className="space-y-6"> <input type="text" placeholder="Utilizador ou email" className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500 transition-colors" /> <input type="password" placeholder="Senha" className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500 transition-colors" /> <button onClick={() => onNavigate('lobby')} className="w-full bg-lime-500 hover:bg-lime-600 text-white font-bold py-4 rounded-lg text-xl shadow-lg">LOGIN</button> <button onClick={() => onNavigate('lobby')} className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg text-lg">CADASTRE-SE</button> </div>
-        </div>
-      </PageContent>
-    </AppContainer>
-  );
+// Componente principal da aplicação
+const App = () => {
+    const [currentScreen, setCurrentScreen] = useState('lobby');
+    const [screenParams, setScreenParams] = useState({});
+    const [playerState, setPlayerState] = useState({
+        coins: 500,
+        level: 1,
+        wins: 0,
+        cardsBought: 0,
+        theme: 'default',
+        cards: []
+    });
 
-// --- Componente Principal ---
+    const navigate = (screen, params = {}) => {
+        setCurrentScreen(screen);
+        setScreenParams(params);
+    };
 
-export default function App() {
-  const [page, setPage] = useState({ name: 'lobby', params: {} });
-  const [playerState, setPlayerState] = useState({ level: 1, wins: 0, coins: 500, cardsBought: 0, theme: 'default', cards: [], });
-  const handleNavigate = (name, params = {}) => setPage({ name, params });
-  useEffect(() => { const scripts = [{ id: 'confetti-script', src: "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" }, { id: 'tone-script', src: "https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" }]; scripts.forEach(s => { if (!document.getElementById(s.id)) { const script = document.createElement('script'); script.id = s.id; script.src = s.src; script.async = true; document.head.appendChild(script); } }); }, []);
+    const renderScreen = () => {
+        switch (currentScreen) {
+            case 'lobby':
+                return <LobbyScreen onNavigate={navigate} setPlayerState={setPlayerState} />;
+            case 'profile':
+                return <ProfileScreen onNavigate={navigate} playerState={playerState} setPlayerState={setPlayerState} />;
+            case 'game':
+                return <GameScreen onNavigate={navigate} playerState={playerState} setPlayerState={setPlayerState} params={screenParams} />;
+            default:
+                return <LobbyScreen onNavigate={navigate} setPlayerState={setPlayerState} />;
+        }
+    };
 
-  const renderPage = () => {
-    const props = { onNavigate: handleNavigate, playerState, setPlayerState, params: page.params };
-    switch (page.name) {
-      case 'lobby': return <LobbyScreen {...props} />;
-      case 'profile': return <ProfileScreen {...props} />;
-      case 'game': return <GameScreen {...props} />;
-      case 'purchase': return <PurchaseScreen {...props} />;
-      case 'history': return <HistoryScreen {...props} />;
-      case 'login': return <LoginScreen {...props} />;
-      default: return <LobbyScreen {...props} />;
-    }
-  };
-  
-  useEffect(() => { document.body.className = 'bg-gray-100'; }, []);
-  return (
-    <>
-      <style>{`
-        @keyframes daub { 0% { transform: scale(0.5); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
-        .animate-daub { animation: daub 0.4s ease-out forwards; }
-        @keyframes pulse-bright { 0%, 100% { box-shadow: 0 0 2px 2px rgba(250, 204, 21, 0.0); } 50% { box-shadow: 0 0 8px 5px rgba(250, 204, 21, 0.7); } }
-        .animate-pulse-bright { animation: pulse-bright 1.5s infinite; }
-      `}</style>
-      <div className="font-sans">{renderPage()}</div>
-    </>
-  );
-}
+    return renderScreen();
+};
+
+export default App;
+
